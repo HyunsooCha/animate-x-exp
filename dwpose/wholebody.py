@@ -8,8 +8,8 @@ from dwpose.onnxpose import inference_pose
 class Wholebody:
     def __init__(self):
         device = 'cuda' # 'cpu' #
-        providers = ['CPUExecutionProvider'
-                  ] if device == 'cpu' else ['CUDAExecutionProvider']
+        providers = ['CPUExecutionProvider'] if device == 'cpu' else ['CUDAExecutionProvider']
+        # providers = ['CPUExecutionProvider']
         onnx_det =  'checkpoints/yolox_l.onnx' 
         onnx_pose = 'checkpoints/dw-ll_ucoco_384.onnx'
 

@@ -231,9 +231,6 @@ def mp_main(args):
     results_vis = []
     for i, file_path in enumerate(video_paths):
         try:
-
-
-
             logger.info(f"{i}/{len(video_paths)}, {file_path}")
 
             save_frame_dir = os.path.join(args.saved_frame_dir, os.path.basename(file_path)[:-4]) 
@@ -257,6 +254,7 @@ def mp_main(args):
                 # print(frame.shape)
                 # import pdb; pdb.set_trace()
                 if ret:
+                    
                     size = frame.shape # (1216, 832, 3)
                     pose = dw_func(i, frame, dwpose_model)
                     bodies.append(pose['bodies']['candidate'][:18])
@@ -273,7 +271,7 @@ def mp_main(args):
                         )
                     # output_transformed = cv2.cvtColor(output_transformed, cv2.COLOR_BGR2RGB)
                     # output_transformed = cv2.resize(output_transformed, (W, H))
-                        
+                    
                     # img = Image.fromarray(output_transformed)
                     cv2.imwrite(os.path.join(cur_output_dir, f"frame_{idx:04d}.jpg"), dwpose_woface)
                     # img.save(os.path.join(cur_output_dir, f"frame_{idx:04d}.jpg"))

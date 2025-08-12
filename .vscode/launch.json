@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "1 preprocess video",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd":"${workspaceFolder}",
+            "program": "process_data.py",
+            "console": "integratedTerminal",
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "0",
+            },
+            "args": [
+                "--source_video_paths",
+                "data/source_videos",
+                "--saved_pose_dir",
+                "data/saved_pkl",
+                "--saved_pose",
+                "data/saved_pose",
+                "--saved_frame_dir",
+                "data/saved_frames"
+            ]
+        },
+    ]
+}
